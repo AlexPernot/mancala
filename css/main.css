@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Quicksand;
+  src: url("../fonts/Quicksand_Book.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: Quicksand;
+  src: url("../fonts/Quicksand_Bold.otf");
+  font-weight: bold;
+}
+
+@keyframes marblePick {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes marbleDrop {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+body {
+  font-family: Quicksand, sans-serif;
+}
+
+#board-container {
+  background: url("../img/bg.jpg") bottom;
+}
+
+#board {
+  width: 1000px;
+  height: 550px;
+  background: url("../img/board.jpg");
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+}
+
+.hole-container {
+  @apply flex flex-col relative;
+}
+
+.marble-count {
+  @apply absolute text-3xl text-white select-none;
+  text-shadow: 1px 1px 3px black;
+}
+
+/* top row */
+[id^=h2] ~ .marble-count, [id^=r2] ~ .marble-count {
+  @apply -left-3 -top-3;
+}
+
+/* bottom row */
+[id^=h1] ~ .marble-count, [id^=r1] ~ .marble-count {
+  @apply -right-3 -bottom-3;
+}
+
+.hole {
+  @apply rounded-full p-8 bg-yellow-900 bg-opacity-50 relative flex-1 flex flex-col items-center;
+  box-shadow: inset 0 0 20px 0 black;
+  border: 6px solid transparent;
+}
+
+img {
+  @apply select-none;
+}
+
+.highlight {
+  border-color: #3cc45c;
+}
+
+#about-modal p {
+  @apply my-4;
+}
+
+dt {
+  @apply font-bold;
+}
+
+dd {
+  @apply col-span-5;
+}
+
+footer a {
+  @apply text-yellow-500;
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mancala</title>
+    <meta name="description" content="A game for two.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/output.css">
+</head>
+
+<body>
+<div class="w-screen h-screen flex flex-col justify-center text-gray-800">
+    <h1 class="text-center text-6xl">Mancala</h1>
+    <h2 class="text-center text-4xl">A game for two.</h2>
+    <form id="start-game-form" action="game.html"
+          class="mx-auto my-20 p-8 w-1/2 border border-gray-500 flex flex-col items-center">
+        <p class="text-center mb-6">Please enter the player names.</p>
+        <div class="grid grid-cols-2">
+            <label for="p1" class="flex justify-center items-center">
+                Player 1 name
+            </label>
+            <input type="text" id="p1" name="p1" placeholder="Player 1" class="border border-gray-700 p-2"/>
+            <label for="p2" class="flex justify-center items-center">
+                Player 2 name
+            </label>
+            <input type="text" id="p2" name="p2" placeholder="Player 2" class="border border-gray-700 p-2"/>
+        </div>
+        <div class="mt-12">
+            <input type="submit" class="p-4 font-bold rounded border" value="Start game"/>
+        </div>
+
+    </form>
+    <footer class="absolute bottom-0 px-1 w-full flex justify-between bg-black bg-opacity-75 text-white">
+        <div>Mancala by Alex Pernot</div>
+        <div>
+            <a href="https://github.com/AlexPernot/mancala" target="_blank">Github</a> | Gems by <a
+                href="https://taarna23.itch.io/110-gem-icons" target="_blank">taarna23</a> | Background by <a
+                href="https://unsplash.com/photos/T-LfvX-7IVg" target="_blank">Damian Patkowski</a> | Board by <a
+                href="https://www.deviantart.com/koncaliev/art/seamless-wood-texture-271923129">koncaliev</a> | <a
+                href="https://www.dafont.com/fr/quicksand.font">Quicksand font</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const onSubmit = e => {
+        if (window.localStorage) {
+            window.localStorage.setItem("p1", e.target.elements.p1.value)
+            window.localStorage.setItem("p2", e.target.elements.p2.value)
+        }
+    }
+
+    document.getElementById("start-game-form").addEventListener("submit", onSubmit);
+</script>
+</body>
+
+</html>

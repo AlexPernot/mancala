@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mancala</title>
+    <meta name="description" content="A game for two.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/output.css">
+</head>
+
+<body>
+<div id="game" class="w-screen h-screen flex flex-col text-gray-800">
+    <header class="grid grid-cols-3 grid-rows-1 justify-between items-center p-2">
+        <div>
+            <a href="./index.html" class="hover:underline">Back to main menu</a>
+        </div>
+        <div id="header-content" class="text-3xl text-center"></div>
+        <div class="text-3xl text-right">
+            <button type="button" id="about-button" class="w-10 border border-gray-800 rounded-full">?</button>
+        </div>
+    </header>
+    <div id="board-container" class="flex flex-col flex-1 justify-center items-center p-12">
+        <div id="board" class="shadow-2xl grid grid-cols-8 grid-rows-2 gap-8 p-12 rounded-lg">
+            <div class="hole-container first-row row-span-2">
+                <div id="r2" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h26" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h25" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h24" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h23" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h22" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h21" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container row-span-2">
+                <div id="r1" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h11" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h12" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h13" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h14" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h15" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+            <div class="hole-container">
+                <div id="h16" class="hole"></div>
+                <div class="marble-count"></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="overlay" class="pointer-events-none absolute w-screen h-screen flex flex-col justify-center">
+        <p id="overlay-text-container"
+           class="text-center text-6xl font-bold bg-white transition-all duration-500 ease-in-out bg-opacity-0 text-gray-800 text-opacity-0 py-1">
+            &nbsp;</p>
+        <div id="about-modal"
+             class="hidden bg-white transition-all duration-500 ease-in-out bg-opacity-0 text-gray-800 text-opacity-0 py-1 px-40">
+            <h2 class="text-6xl font-bold text-center mb-8">How to play</h2>
+            <p>The goal of the game is to collect the most gems by the end of the game. Your collected gems are in your
+                store
+                (the bigger pocket on your right).</p>
+            <p>When it's your turn, click on one of your pockets to pick the gems inside.
+                You will then drop the gems in the next pockets, one by one, counter-clockwise.
+                You can't drop a gem in the opponent's pocket. There are only two tricks you can do :</p>
+            <dl class="grid grid-cols-6 gap-y-4 my-8">
+                <dt>Extra turn:</dt>
+                <dd>When the last gem you drop is in your pocket, you take another turn.</dd>
+                <dt>Capture:</dt>
+                <dd>When the last gem you drop is in an empty pocket on your side, you capture this last gem plus all
+                    the gems in the pocket in front of it.
+                    Captured gems go directly in your store.
+                </dd>
+            </dl>
+            <p>The game ends when all six pockets on one side of the board are empty. The player who still has gems on
+                their side of the board captures all of those pieces.</p>
+            <div class="text-center mt-12">
+                <button type="button" id="dismiss-about-button"
+                        class="opacity-0 transition-all duration-500 ease-in-out border border-gray-800 p-2 hover:bg-gray-800 hover:text-white">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+    <footer class="absolute bottom-0 px-1 w-full flex justify-between bg-black bg-opacity-50 text-white">
+        <div>Mancala by Alex Pernot</div>
+        <div>
+            <a href="https://github.com/AlexPernot/mancala" target="_blank">Github</a> | Gems by <a
+                href="https://taarna23.itch.io/110-gem-icons" target="_blank">taarna23</a> | Background by <a
+                href="https://unsplash.com/photos/T-LfvX-7IVg" target="_blank">Damian Patkowski</a> | Board by <a
+                href="https://www.deviantart.com/koncaliev/art/seamless-wood-texture-271923129">koncaliev</a> | <a
+                href="https://www.dafont.com/fr/quicksand.font">Quicksand font</a>
+        </div>
+    </footer>
+</div>
+
+<script type="module" src="js/game.js"></script>
+<script type="module" src="js/website.js"></script>
+
+<script>
+    document.getElementById("about-button").addEventListener("click", () => {
+        document.getElementById("about-modal").classList.remove("hidden");
+    })
+</script>
+</body>
+
+</html>

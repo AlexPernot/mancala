@@ -1,0 +1,17 @@
+{
+  "name": "mancala-game",
+  "version": "0.0.1",
+  "description": "A game of hot-seat Mancala.",
+  "license": "WTFPL",
+  "author": "Alex Pernot <alex_pernot@hotmail.com>",
+  "scripts": {
+    "build:css": "npx tailwindcss-cli build css/main.css -o css/output.css"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.0",
+    "tailwindcss-cli": "^0.1.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.0"
+  }
+}
